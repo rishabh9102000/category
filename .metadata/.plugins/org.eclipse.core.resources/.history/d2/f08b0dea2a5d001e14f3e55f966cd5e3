@@ -1,0 +1,13 @@
+package com.cg.adminclassified;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class AdminclassifiedApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
