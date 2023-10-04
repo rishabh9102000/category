@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  mysqldb:
+    image: mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3306:3306
+    networks:
+      - mynetwork
+   hotel:
+    depends_on:
+      - mysqldb
+    build: ./Hotel-Service
+    restart: on-failure
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url" : "jdbc:mysql://mysqldb:3306/admin?createDatabaseIfNotExist=true",
+        "spring.datasource.username" : "root",
+        "spring.datasource.password" : "root"
+      }'
+   
+      
+    ports:
+      - 1001:1001
+    networks:
+      - mynetwork
+networks:
+  mynetwork:

@@ -1,0 +1,37 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: API-GATEWAY-SERVICE
+#  main:
+#    allow-bean-definition-overriding: true
+  cloud:
+    gateway:
+      routes:
+        - id: Categories-SERVICE
+          uri: http://localhost:1111
+          predicates:
+            - Path=/v1/**
+          filters:
+             - SetPath=/v1
+        - id: Ads-SERVICE
+          uri: http://localhost:1119
+          predicates:
+            - Path=/ad/**
+          filters: AuthenticationFilter
+#        - id: security-SERVICE
+#          uri: http://localhost:1234
+#          predicates:
+#            - Path=/security/**
+#  security:
+#    user:
+#      name: rishabh
+#      password: rishabh
+#      roles:
+#      - ADMIN
+
+eureka:
+  client:
+    service-url:
+      default-Zone:  http://localhost:8761/eureka
+      

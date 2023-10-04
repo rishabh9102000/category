@@ -37,4 +37,5 @@ public class AdminController {
 	public ResponseEntity<Category> getTheatre(@PathVariable int categoryId) throws IdNotFoundException{
 		return new ResponseEntity<Category>(services.getCatgeory(categoryId),HttpStatus.OK);
 	}
+	
 }

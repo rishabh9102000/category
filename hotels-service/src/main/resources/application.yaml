@@ -1,0 +1,24 @@
+server:
+  port: 1001
+  servlet:
+      context-path: /v1/hotel
+ 
+
+  
+spring:
+    application:
+        name: Hotel-Service
+    jackson:
+        default-property-inclusion: non-null
+
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/hotel?createDatabaseIfNotExist=true
+        username: root
+        password: Mrgoh@2000
+
+    jpa:
+        show-sql: false
+        hibernate:
+            ddl-auto: update
+

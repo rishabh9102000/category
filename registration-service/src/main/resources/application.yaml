@@ -1,0 +1,23 @@
+server:
+ port: 1002
+ servlet:
+    context-path: /registration
+ 
+
+  
+spring:
+    application:
+        name: registartion-classified
+    jackson:
+        default-property-inclusion: non-null
+
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/registration?createDatabaseIfNotExist=true
+        username: root
+        password: Mrgoh@2000
+
+    jpa:
+        show-sql: false
+        hibernate:
+            ddl-auto: update
